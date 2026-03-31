@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="RV Frontend favicon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F4F6FF" />
+      <stop offset="100%" stop-color="#E8EDFF" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4338CA" />
+      <stop offset="100%" stop-color="#4F46E5" />
+    </linearGradient>
+  </defs>
+
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#bg)" />
+
+  <path d="M45 8h11v11" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M19 56H8V45" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+  <text x="32" y="38" text-anchor="middle" fill="#2F26B7" font-size="22" font-family="Segoe UI, Arial, sans-serif" font-weight="700" letter-spacing="1">RV</text>
+</svg>

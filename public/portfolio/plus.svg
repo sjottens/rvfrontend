@@ -1,0 +1,11 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#F3F4F6"/>
+  <rect x="52" y="52" width="1096" height="616" rx="22" fill="#FFFFFF"/>
+  <rect x="52" y="52" width="1096" height="82" rx="22" fill="#84CC16"/>
+  <rect x="120" y="178" width="220" height="420" rx="14" fill="#ECFCCB"/>
+  <rect x="370" y="178" width="220" height="420" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="620" y="178" width="220" height="420" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <rect x="870" y="178" width="220" height="420" rx="14" fill="#F8FAFC" stroke="#E2E8F0"/>
+  <text x="92" y="106" fill="#F8FAFC" font-family="Arial" font-size="40" font-weight="700">PLUS</text>
+  <text x="92" y="160" fill="#334155" font-family="Arial" font-size="28">Categoriepagina en productkaarten</text>
+</svg>

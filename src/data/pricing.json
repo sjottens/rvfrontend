@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Start",
+    "priceFrom": 85,
+    "unit": "per uur",
+    "bestFor": "Kleine UI-taken en korte support",
+    "features": [
+      "Pixel-perfect implementatie",
+      "Snelle onboarding in bestaande code",
+      "Remote samenwerking"
+    ]
+  },
+  {
+    "name": "Project",
+    "priceFrom": null,
+    "unit": "op aanvraag",
+    "hours": "max. 32 uur",
+    "bestFor": "Landingspagina's en UI-features",
+    "features": [
+      "Design naar code traject",
+      "Max. 32 uur per week",
+      "Performance optimalisatie"
+    ]
+  },
+  {
+    "name": "Dedicated",
+    "priceFrom": null,
+    "unit": "op aanvraag",
+    "hours": "max. 6 maanden · verlenging mogelijk",
+    "bestFor": "Structurele front-end capaciteit",
+    "features": [
+      "Zelfstandig werkend, los van het team",
+      "Max. 6 maanden, verlenging mogelijk",
+      "React, Vue, Angular of custom stack"
+    ]
+  }
+]

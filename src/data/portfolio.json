@@ -1,0 +1,46 @@
+[
+  {
+    "id": "alko",
+    "client": "Alko",
+    "title": "Homepage campagneblokken",
+    "category": "B2C / E-commerce",
+    "description": "UI-implementatie, implementeren van een gift card page met focus op snelheid, duidelijke hiërarchie en conversie.",
+    "image": "/portfolio/project1.png",
+    "tech": ["SCSS", "Responsive UI", "JavaScript", "Intershop"],
+    "year": "2025",
+    "url": ""
+  },
+  {
+    "id": "BMN",
+    "client": "Bouwmaterialen Nederland",
+    "title": "A/B-testen van nieuwe designs",
+    "category": "B2B Commerce",
+    "description": "A/B-testen van nieuwe designs binnen een grote commerce omgeving.",
+    "image": "/portfolio/project3.png",
+    "tech": ["VWO", "CSS", "JavaScript", "React"],
+    "year": "2025",
+    "url": ""
+  },
+  {
+    "id": "isero",
+    "client": "Isero",
+    "title": "Productgroepen en navigatie",
+    "category": "B2B Commerce",
+    "description": "Pixel-perfect implementatie van assortiment- en categoriecomponenten binnen een grote commerce omgeving.",
+    "image": "/portfolio/isero-home-page.png",
+    "tech": ["Bootstrap", "SCSS", "JavaScript", "Intershop"],
+    "year": "2023",
+    "url": ""
+  },
+  {
+    "id": "plus",
+    "client": "PLUS",
+    "title": "Opzetten van de nieuwe e-commerce frontend",
+    "category": "B2C E-commerce",
+    "description": "Implementatie van het nieuwe design, cardcomponenten en mobile-first responsive gedrag.",
+    "image": "/portfolio/project2.png",
+    "tech": ["SCSS", "Responsive UI", "JavaScript", "Designs vanuit Photoshop", "Intershop"],
+    "year": "2019",
+    "url": ""
+  }
+]

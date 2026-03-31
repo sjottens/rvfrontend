@@ -1,0 +1,11 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#151922"/>
+  <rect x="62" y="62" width="1076" height="596" rx="26" fill="#1E293B"/>
+  <rect x="90" y="100" width="1020" height="54" rx="12" fill="#0F172A"/>
+  <rect x="108" y="115" width="120" height="24" rx="12" fill="#EF4444"/>
+  <rect x="90" y="180" width="660" height="420" rx="18" fill="#4C1D95"/>
+  <rect x="770" y="180" width="340" height="200" rx="18" fill="#7C3AED"/>
+  <rect x="770" y="400" width="340" height="200" rx="18" fill="#9333EA"/>
+  <text x="130" y="270" fill="#F8FAFC" font-family="Arial" font-size="58" font-weight="700">ALKO</text>
+  <text x="130" y="340" fill="#E2E8F0" font-family="Arial" font-size="32">E-commerce hero layout</text>
+</svg>
