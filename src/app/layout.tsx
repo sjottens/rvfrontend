@@ -42,6 +42,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/"
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" }
+    ],
+    shortcut: ["/favicon-32x32.png"],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }]
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "RV Frontend | Pixel-perfect UI implementatie",
     description:
@@ -68,7 +78,8 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true
-  }
+  },
+  themeColor: "#060910"
 };
 
 export default function RootLayout({
