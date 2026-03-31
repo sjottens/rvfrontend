@@ -83,7 +83,7 @@ export default function HomePage() {
             <div className="shine-border rounded-[2rem] bg-white/[0.03] p-4 backdrop-blur">
               <div className="rounded-[1.6rem] border border-white/10 bg-surface p-5">
                 <Image
-                  src="/logos/rvfrontend-blue-v2.png"
+                  src="/logos/rvfrontend-white-v2.png"
                   alt="RV Frontend"
                   width={1200}
                   height={546}

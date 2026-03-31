@@ -129,6 +129,30 @@ h4 {
   animation-direction: reverse;
 }
 
+.footer-logo-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-logo-shell::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -28px 24px;
+  width: 120px;
+  height: 36px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0));
+  filter: blur(14px);
+  opacity: 0.55;
+  animation: footerLogoGlow 4.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.footer-logo-sheen {
+  opacity: 0;
+  animation: footerLogoSheen 5.2s ease-in-out infinite;
+}
+
 @keyframes waveZoom {
   0% {
     transform: scale(1.02);
@@ -158,8 +182,42 @@ h4 {
   }
 }
 
+@keyframes footerLogoGlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(10px, -3px, 0);
+    opacity: 0.7;
+  }
+}
+
+@keyframes footerLogoSheen {
+  0%,
+  58%,
+  100% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  68% {
+    opacity: 0.8;
+  }
+  84% {
+    transform: translateX(420%);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee-track {
     animation: none;
+  }
+
+  .footer-logo-shell::before,
+  .footer-logo-sheen {
+    animation: none;
+    opacity: 0;
   }
 }

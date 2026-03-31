@@ -17,9 +17,31 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-base/85 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-3" aria-label="RV Frontend home">
-          <Image src="/logos/rvfrontend-blue-v2.png" alt="RV Frontend logo" width={144} height={60} className="h-9 w-auto" priority />
-        </Link>
+        <motion.div
+          initial={{ opacity: 0, y: -10, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Link href="/" className="group flex items-center gap-3" aria-label="RV Frontend home">
+            <div className="relative overflow-hidden rounded-md">
+              <motion.div
+                initial={{ opacity: 0, x: -28, scale: 0.96 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                transition={{ delay: 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <Image src="/logos/rvfrontend-white-v2.png" alt="RV Frontend logo" width={144} height={60} className="h-9 w-auto" priority />
+              </motion.div>
+
+              <motion.span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/45 to-transparent mix-blend-screen"
+                initial={{ x: "-120%", opacity: 0 }}
+                animate={{ x: "420%", opacity: [0, 1, 0] }}
+                transition={{ delay: 0.34, duration: 0.85, ease: "easeInOut" }}
+              />
+            </div>
+          </Link>
+        </motion.div>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
           {navItems.map((item) => {

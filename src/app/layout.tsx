@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logos/rvfrontend-blue-v2.png",
+        url: "/logos/rvfrontend-white-v2.png",
         width: 1200,
         height: 630,
         alt: "RV Frontend"
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "RV Frontend",
     description: "Custom-built websites met moderne stack. Geen WordPress, wel pixel-perfect en SEO-sterk.",
-    images: ["/logos/rvfrontend-blue-v2.png"]
+    images: ["/logos/rvfrontend-white-v2.png"]
   },
   robots: {
     index: true,
