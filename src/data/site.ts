@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "RV Frontend",
   tagline: "render: pixel-perfect",
   domain: "https://rvfrontend.nl",
-  email: "info@rvfrontend.nl",
+  email: "rvottens@gmail.com",
   phone: "+31628522314",
   location: "Remote (NL / EU)",
   description:
