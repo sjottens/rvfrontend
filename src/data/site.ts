@@ -20,6 +20,7 @@ export const capabilities = [
   "Designs vertalen naar productieklare UI",
   "Websites bouwen met moderne stack, custom build (geen WordPress)",
   "CSS, SCSS, Tailwind CSS en Bootstrap",
+  "Github Copilot en AI-tools in front-end workflow",
   "React, Vue, Angular en bestaande codebases",
   "Performance en SEO-bewuste front-end implementatie",
   "Remote inzetbaar met snelle communicatie"
