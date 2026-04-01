@@ -6,7 +6,6 @@ import "./globals.css";
 import { BackgroundAudio } from "@/components/background-audio";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { Preloader } from "@/components/preloader";
 import { siteConfig } from "@/data/site";
 
 const spaceGrotesk = Space_Grotesk({
@@ -103,7 +102,6 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${spaceGrotesk.variable} ${sora.variable}`}>
       <body className="min-h-screen bg-noise text-mist antialiased">
-        <Preloader />
         <BackgroundAudio />
         <SiteHeader />
         <main>{children}</main>

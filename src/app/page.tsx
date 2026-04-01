@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Code2, Layers3, Rocket, Workflow } from "lucide-react";
 
 import { AnimatedSection } from "@/components/animated-section";
+import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { capabilities, siteConfig } from "@/data/site";
 
 const process = [
@@ -28,18 +29,11 @@ export default function HomePage() {
   return (
     <>
       <section className="hero-grid relative overflow-hidden pb-24 pt-16">
-        <video
+        <HeroBackgroundVideo
+          src="/media/breaking-wave.mp4"
           className="wave-motion-video absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Brekende golf video"
-        >
-          <source src="/media/breaking-wave.mp4" type="video/mp4" />
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-sea-waves-crashing-on-beach-1196-large.mp4" type="video/mp4" />
-        </video>
+          ariaLabel="Brekende golf video"
+        />
 
         <div className="absolute inset-0 bg-gradient-to-r from-[#050812]/86 via-[#050812]/58 to-[#050812]/66" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#050812]/85 via-[#050812]/25 to-[#050812]/55" />

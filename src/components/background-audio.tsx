@@ -57,7 +57,7 @@ export function BackgroundAudio() {
 
   return (
     <>
-      <audio ref={audioRef} src={AUDIO_SRC} loop preload="auto" />
+      <audio ref={audioRef} src={AUDIO_SRC} loop preload="none" />
 
       <div className="fixed bottom-5 right-5 z-[90]">
         <button
