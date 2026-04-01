@@ -4,9 +4,9 @@
     "client": "Alko",
     "title": "B2C webside",
     "category": "B2C / E-commerce",
-    "description": "UI-implementatie, implementeren van een gift card page met focus op snelheid, duidelijke hiërarchie en conversie.",
+    "description": "Onderhoud en doorontwikkeling van e-commerce platform. Implementatie van nieuwe features en optimalisatie van bestaande functionaliteiten.",
     "image": "/portfolio/project1.png",
-    "tech": ["SCSS", "Responsive UI", "JavaScript", "Intershop"],
+    "tech": ["HTML5", "SCSS", "Bootstrap", "Responsive UI", "JavaScript", "Intershop", "Email templating", "GIT", "Figma"],
     "year": "2025",
     "url": ""
   },
@@ -15,7 +15,7 @@
     "client": "Bouwmaterialen Nederland",
     "title": "A/B-testen van nieuwe designs",
     "category": "B2B Commerce",
-    "description": "A/B-testen van nieuwe designs binnen een grote commerce omgeving.",
+    "description": "Opzetten en uitvoeren van A/B-testen met VWO Designs omgezet naar HTML, CSS en JavaScript Samenwerking met designer en business analyst.",
     "image": "/portfolio/project3.png",
     "tech": ["VWO", "CSS", "JavaScript", "React"],
     "year": "2025",
@@ -28,7 +28,7 @@
     "category": "B2B Commerce",
     "description": "Pixel-perfect implementatie van assortiment- en categoriecomponenten binnen een grote commerce omgeving.",
     "image": "/portfolio/isero-home-page.png",
-    "tech": ["Bootstrap", "SCSS", "JavaScript", "Intershop"],
+    "tech": ["HTML5", "Bootstrap", "SCSS", "JavaScript", "Intershop", "Figma"],
     "year": "2023",
     "url": ""
   },
@@ -37,10 +37,54 @@
     "client": "PLUS",
     "title": "Opzetten van de nieuwe e-commerce frontend",
     "category": "B2C E-commerce",
-    "description": "Implementatie van het nieuwe design, cardcomponenten en mobile-first responsive gedrag.",
+    "description": "Nieuwe E-commerce website opgezet met Intershop in een multidisciplinair SCRUM team op locatie. Betrokken bij het ontwerpen van de pagina's en verantwoordelijk voor het opzetten van de HTML-structuur, Less, Bootstrap, JavaScript (Jquery), Isml templating.",
     "image": "/portfolio/project2.png",
-    "tech": ["SCSS", "Responsive UI", "JavaScript", "Designs vanuit Photoshop", "Intershop"],
-    "year": "2019",
+    "tech": ["HTML5", "SCSS", "Bootstrap", "Responsive UI", "JavaScript", "Designs vanuit Photoshop", "Intershop"],
+    "year": "2014",
+    "url": ""
+  },
+  {
+    "id": "xerox",
+    "client": "Xerox",
+    "title": "Onderhouden en implementeren van nieuwe designs",
+    "category": "B2C E-commerce",
+    "description": "E-commerce website onderhouden en implementeren van nieuwe designs in een multidisciplinair SCRUM team.",
+    "image": "/portfolio/xerox.png",
+    "tech": ["HTML5", "SCSS", "Bootstrap", "Responsive UI", "JavaScript", "Intershop"],
+    "year": "2018",
+    "url": ""
+  },
+  {
+    "id": "hoogvliet",
+    "client": "Hoogvliet",
+    "title": "Onderhouden en implementeren van nieuwe designs",
+    "category": "B2C E-commerce",
+    "description": "E-commerce website onderhouden en implementeren van nieuwe designs, in een multidisciplinair SCRUM team. Verantwoordelijk voor het oplossen van bugs, het implementeren van de nieuwe checkout flow en het opzetten van de HTML-structuur, Less, Bootstrap, JavaScript (Jquery), Isml templating en het gebruik van Mustache.js",
+    "image": "/portfolio/hoogvliet.png",
+    "tech": ["HTML5", "SCSS", "Bootstrap", "Mustache.js", "Responsive UI", "JavaScript", "Intershop"],
+    "year": "2017",
+    "url": ""
+  },
+  {
+    "id": "bodyandfit",
+    "client": "Body & Fit",
+    "title": "Het opzetten van A/B testen met optimizely web.",
+    "category": "B2C E-commerce",
+    "description": "Aangeleverde designs omzetten naar HTML, CSS met het gebruik van JavaScript binnen het optimizely web platform, om zo de gebruikerservaring te optimaliseren en te verbeteren voor een betere conversie.",
+    "image": "/portfolio/body&fit.png",
+    "tech": ["HTML5", "CSS", "JavaScript", "Optimizely Web"],
+    "year": "2017",
+    "url": ""
+  },
+  {
+    "id": "wefashion",
+    "client": "WE fashion",
+    "title": "Email templates HTML en CSS.",
+    "category": "B2C E-commerce",
+    "description": "Website werd overgezet van Intershop platform naar Demandware platform (is nu salesforce). Ik heb voornamelijk gewerkt op locatie aan het opnieuw opzetten van de Email templates HTML en CSS voor WE fashion.",
+    "image": "/portfolio/wefashion.png",
+    "tech": ["HTML5", "CSS"],
+    "year": "2013",
     "url": ""
   }
 ]
