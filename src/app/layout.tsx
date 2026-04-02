@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Sora, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
 import { BackgroundAudio } from "@/components/background-audio";
+import { LanguageProvider } from "@/components/language-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { siteConfig } from "@/data/site";
+import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -81,11 +84,14 @@ export const metadata: Metadata = {
   themeColor: "#060910"
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const language = normalizeLanguage(cookieStore.get(LANG_COOKIE)?.value);
+
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -100,12 +106,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="nl" className={`${spaceGrotesk.variable} ${sora.variable}`}>
+    <html lang={language} className={`${spaceGrotesk.variable} ${sora.variable}`}>
       <body className="min-h-screen bg-noise text-mist antialiased">
-        <BackgroundAudio />
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <LanguageProvider initialLanguage={language}>
+          <BackgroundAudio />
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </LanguageProvider>
         <Script id="org-schema" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(orgSchema)}
         </Script>

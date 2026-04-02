@@ -4,6 +4,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { ChevronDown, Send } from "lucide-react";
 
 import pricingData from "@/data/pricing.json";
+import { getMessages } from "@/data/i18n";
+import { useLanguage } from "@/components/language-provider";
 
 type FormState = {
   name: string;
@@ -15,6 +17,8 @@ type FormState = {
   startedAt: number;
 };
 
+type FeedbackKey = "validationError" | "success" | "genericError";
+
 const initialState: FormState = {
   name: "",
   company: "",
@@ -25,23 +29,30 @@ const initialState: FormState = {
   startedAt: 0
 };
 
-const budgetOptions = pricingData.map((tier) => {
-  const priceLabel = tier.priceFrom !== null ? `EUR ${tier.priceFrom} ${tier.unit}` : "Op aanvraag";
-  const details = "hours" in tier && tier.hours ? ` - ${tier.hours}` : "";
+function createBudgetOptions(onRequestLabel: string, undecidedLabel: string) {
+  const options = pricingData.map((tier) => {
+    const priceLabel = tier.priceFrom !== null ? `EUR ${tier.priceFrom} ${tier.unit}` : onRequestLabel;
+    const details = "hours" in tier && tier.hours ? ` - ${tier.hours}` : "";
 
-  return {
-    value: `${tier.name} - ${priceLabel}${details}`,
-    label: `${tier.name} - ${priceLabel}${details}`
-  };
-});
+    return {
+      value: `${tier.name} - ${priceLabel}${details}`,
+      label: `${tier.name} - ${priceLabel}${details}`
+    };
+  });
 
-budgetOptions.push({
-  value: "Nog te bepalen",
-  label: "Nog te bepalen"
-});
+  options.push({
+    value: undecidedLabel,
+    label: undecidedLabel
+  });
+
+  return options;
+}
 
 export function ContactForm() {
-  const defaultBudget = budgetOptions[0]?.value ?? "Nog te bepalen";
+  const { language } = useLanguage();
+  const t = getMessages(language);
+  const budgetOptions = createBudgetOptions(t.form.onRequest, t.form.undecided);
+  const defaultBudget = budgetOptions[0]?.value ?? t.form.undecided;
 
   const [form, setForm] = useState<FormState>({
     ...initialState,
@@ -49,7 +60,7 @@ export function ContactForm() {
     startedAt: 0
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [feedback, setFeedback] = useState("");
+  const [feedbackKey, setFeedbackKey] = useState<FeedbackKey | null>(null);
 
   useEffect(() => {
     setForm((prev) => {
@@ -64,17 +75,30 @@ export function ContactForm() {
     });
   }, []);
 
+  useEffect(() => {
+    setForm((prev) => {
+      if (prev.budget && prev.budget !== defaultBudget) {
+        return prev;
+      }
+
+      return {
+        ...prev,
+        budget: defaultBudget
+      };
+    });
+  }, [defaultBudget]);
+
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (!form.name || !form.email || !form.message) {
       setStatus("error");
-      setFeedback("Vul naam, e-mail en bericht in.");
+      setFeedbackKey("validationError");
       return;
     }
 
     setStatus("sending");
-    setFeedback("");
+    setFeedbackKey(null);
 
     try {
       const response = await fetch("/api/contact", {
@@ -90,7 +114,7 @@ export function ContactForm() {
       }
 
       setStatus("success");
-      setFeedback("Bedankt. Ik kom binnen 24 uur bij je terug.");
+      setFeedbackKey("success");
       setForm({
         ...initialState,
         budget: defaultBudget,
@@ -98,7 +122,7 @@ export function ContactForm() {
       });
     } catch {
       setStatus("error");
-      setFeedback("Er ging iets mis. Probeer het nog een keer of mail direct.");
+      setFeedbackKey("genericError");
     }
   }
 
@@ -115,38 +139,38 @@ export function ContactForm() {
       />
 
       <label className="block space-y-2">
-        <span className="text-sm font-medium text-white/90">Naam</span>
+        <span className="text-sm font-medium text-white/90">{t.form.name}</span>
         <input
           className="field"
           value={form.name}
           onChange={(event) => setForm((prev) => ({ ...prev, name: event.target.value }))}
-          placeholder="Jouw naam"
+          placeholder={t.form.namePlaceholder}
         />
       </label>
 
       <label className="block space-y-2">
-        <span className="text-sm font-medium text-white/90">Bedrijf</span>
+        <span className="text-sm font-medium text-white/90">{t.form.company}</span>
         <input
           className="field"
           value={form.company}
           onChange={(event) => setForm((prev) => ({ ...prev, company: event.target.value }))}
-          placeholder="Bedrijfsnaam"
+          placeholder={t.form.companyPlaceholder}
         />
       </label>
 
       <label className="block space-y-2">
-        <span className="text-sm font-medium text-white/90">E-mail</span>
+        <span className="text-sm font-medium text-white/90">{t.form.email}</span>
         <input
           type="email"
           className="field"
           value={form.email}
           onChange={(event) => setForm((prev) => ({ ...prev, email: event.target.value }))}
-          placeholder="naam@bedrijf.nl"
+          placeholder={t.form.emailPlaceholder}
         />
       </label>
 
       <label className="block space-y-2">
-        <span className="text-sm font-medium text-white/90">Budget</span>
+        <span className="text-sm font-medium text-white/90">{t.form.budget}</span>
         <div className="relative">
           <select
             className="field appearance-none pr-11"
@@ -164,12 +188,12 @@ export function ContactForm() {
       </label>
 
       <label className="block space-y-2">
-        <span className="text-sm font-medium text-white/90">Bericht</span>
+        <span className="text-sm font-medium text-white/90">{t.form.message}</span>
         <textarea
           className="field min-h-36"
           value={form.message}
           onChange={(event) => setForm((prev) => ({ ...prev, message: event.target.value }))}
-          placeholder="Wat wil je laten bouwen of verbeteren?"
+          placeholder={t.form.messagePlaceholder}
         />
       </label>
 
@@ -179,11 +203,11 @@ export function ContactForm() {
         className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-electric/60 bg-electric/30 px-6 py-3 font-semibold text-white transition hover:bg-electric/50 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <Send size={16} />
-        {status === "sending" ? "Versturen..." : "Verstuur bericht"}
+        {status === "sending" ? t.form.sending : t.form.send}
       </button>
 
-      {feedback ? (
-        <p className={status === "success" ? "text-sm text-emerald-300" : "text-sm text-rose-300"}>{feedback}</p>
+      {feedbackKey ? (
+        <p className={status === "success" ? "text-sm text-emerald-300" : "text-sm text-rose-300"}>{t.form[feedbackKey]}</p>
       ) : null}
     </form>
   );

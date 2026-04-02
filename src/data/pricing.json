@@ -1,7 +1,7 @@
 [
   {
     "name": "Start",
-    "priceFrom": 85,
+    "priceFrom": 75,
     "unit": "per uur",
     "bestFor": "Kleine UI-taken en korte support",
     "features": [
@@ -30,7 +30,7 @@
     "bestFor": "Structurele front-end capaciteit",
     "features": [
       "Zelfstandig werkend, los van het team",
-      "Max. 6 maanden, verlenging mogelijk",
+      "Max. 6 maanden, max. 32 uur per week, verlenging mogelijk",
       "React, Vue, Angular of custom stack"
     ]
   }

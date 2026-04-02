@@ -1,9 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
+import { getMessages } from "@/data/i18n";
 import { siteConfig } from "@/data/site";
+import { navItems } from "@/data/site";
+import { useLanguage } from "@/components/language-provider";
 
 export function SiteFooter() {
+  const { language } = useLanguage();
+  const t = getMessages(language);
+
   return (
     <footer className="border-t border-white/10 bg-[#060810]">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-6 py-14 md:grid-cols-[1.25fr_0.85fr_0.9fr] md:items-start">
@@ -25,30 +33,31 @@ export function SiteFooter() {
             </div>
           </Link>
 
-          <p className="mt-5 max-w-sm text-sm leading-6 text-white/60">{siteConfig.description}</p>
+          <p className="mt-5 max-w-sm text-sm leading-6 text-white/60">{t.site.description}</p>
         </div>
 
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-white/50">Snel naar</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-white/50">{t.footer.quickLinks}</p>
           <div className="mt-4 flex flex-col gap-2 text-sm text-white/80">
-            <Link href="/" className="transition-colors hover:text-white">Home</Link>
-            <Link href="/pricing" className="transition-colors hover:text-white">Pricing</Link>
-            <Link href="/portfolio" className="transition-colors hover:text-white">Portfolio</Link>
-            <Link href="/contact" className="transition-colors hover:text-white">Contact</Link>
+            {navItems.map((item) => (
+              <Link key={item.href} href={item.href} className="transition-colors hover:text-white">
+                {t.nav[item.key]}
+              </Link>
+            ))}
           </div>
         </div>
 
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-white/50">Contact</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-white/50">{t.footer.contactTitle}</p>
           <div className="mt-4 space-y-1 text-sm text-white/80">
             <p>{siteConfig.email}</p>
             <p>{siteConfig.phone}</p>
-            <p>{siteConfig.location}</p>
+            <p>{t.site.location}</p>
           </div>
         </div>
       </div>
       <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-white/45">
-        {new Date().getFullYear()} RV Frontend. Alle rechten voorbehouden.
+        {new Date().getFullYear()} RV Frontend. {t.footer.rightsReserved}
       </div>
     </footer>
   );

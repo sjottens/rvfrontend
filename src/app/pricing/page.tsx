@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { Check, Sparkles } from "lucide-react";
 
 import pricingData from "@/data/pricing.json";
+import { getMessages } from "@/data/i18n";
 import { AnimatedSection } from "@/components/animated-section";
+import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
 
 export const metadata = {
   title: "Pricing",
@@ -10,15 +13,18 @@ export const metadata = {
     "Transparante prijzen voor UI implementatie en front-end support. Start vanaf EUR 75 per uur, met project- en dedicated opties."
 };
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const cookieStore = await cookies();
+  const language = normalizeLanguage(cookieStore.get(LANG_COOKIE)?.value);
+  const t = getMessages(language);
+
   return (
     <div className="container-shell py-16 md:py-20">
       <AnimatedSection>
-        <p className="kicker">Pricing</p>
-        <h1 className="mt-4 text-4xl font-semibold text-white md:text-6xl">Transparant, schaalbaar en vanaf EUR 80,-</h1>
+        <p className="kicker">{t.pricing.kicker}</p>
+        <h1 className="mt-4 text-4xl font-semibold text-white md:text-6xl">{t.pricing.title}</h1>
         <p className="mt-6 max-w-3xl text-lg text-white/70">
-          Kies een samenwerkingsvorm die past bij jouw fase: losse ondersteuning, een afgebakend project of structurele
-          capaciteit binnen je team.
+          {t.pricing.description}
         </p>
       </AnimatedSection>
 
@@ -42,7 +48,7 @@ export default function PricingPage() {
               {tier.priceFrom !== null ? (
                 <p className="mt-4 text-4xl font-semibold text-white">EUR {tier.priceFrom}</p>
               ) : (
-                <p className="mt-4 text-4xl font-semibold text-white">Op aanvraag</p>
+                <p className="mt-4 text-4xl font-semibold text-white">{t.pricing.onRequest}</p>
               )}
               <p className="mt-1 text-sm text-white/65">{tier.unit}</p>
               {"hours" in tier && tier.hours ? (
@@ -64,7 +70,7 @@ export default function PricingPage() {
                 href="/contact"
                 className="mt-8 inline-flex rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/45"
               >
-                Plan intake
+                {t.pricing.cta}
               </Link>
             </article>
           );
@@ -72,12 +78,11 @@ export default function PricingPage() {
       </AnimatedSection>
 
       <AnimatedSection className="mt-10 rounded-3xl border border-white/10 bg-white/[0.03] p-7" delay={0.2}>
-        <h3 className="text-2xl font-semibold text-white">Wat je altijd krijgt</h3>
+        <h3 className="text-2xl font-semibold text-white">{t.pricing.alwaysIncludedTitle}</h3>
         <div className="mt-4 grid gap-3 text-sm text-white/75 md:grid-cols-2">
-          <p>Pixel-perfect implementatie met oog voor detail.</p>
-          <p>Code die past bij jouw bestaande architectuur.</p>
-          <p>Responsieve layouts die werken op alle schermformaten.</p>
-          <p>Heldere communicatie, korte feedbackloops en remote samenwerking.</p>
+          {t.pricing.alwaysIncluded.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
         </div>
       </AnimatedSection>
     </div>

@@ -1,31 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { ArrowRight, CheckCircle2, Code2, Layers3, Rocket, Workflow } from "lucide-react";
 
 import { AnimatedSection } from "@/components/animated-section";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
-import { capabilities, siteConfig } from "@/data/site";
+import { getMessages } from "@/data/i18n";
+import { siteConfig } from "@/data/site";
+import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
 
-const process = [
-  {
-    title: "Analyse",
-    text: "Snelle intake van design, scope en technische context."
-  },
-  {
-    title: "Implementatie",
-    text: "Designs worden vertaald naar onderhoudbare css."
-  },
-  {
-    title: "Optimalisatie",
-    text: "Aanscherpen van performance, responsive gedrag en SEO-kwaliteit."
-  },
-  {
-    title: "Overdracht",
-    text: "Heldere oplevering met code die direct in jullie sprintproces past."
-  }
-];
+export default async function HomePage() {
+  const cookieStore = await cookies();
+  const language = normalizeLanguage(cookieStore.get(LANG_COOKIE)?.value);
+  const t = getMessages(language);
 
-export default function HomePage() {
   return (
     <>
       <section className="hero-grid relative overflow-hidden pb-24 pt-16">
@@ -41,34 +29,32 @@ export default function HomePage() {
         <div className="container-shell relative z-10 grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr]">
           <AnimatedSection>
             <div className="rounded-[2rem] border border-white/15 bg-[#050812]/45 p-6 shadow-[0_25px_70px_-35px_rgba(0,0,0,0.8)] backdrop-blur-md md:p-8">
-              <p className="kicker">Senior UI engineering</p>
+              <p className="kicker">{t.home.heroKicker}</p>
               <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-tight text-white md:text-6xl">
-                Pixel-perfect front-end voor teams die snel en strak willen leveren.
+                {t.home.heroTitle}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-white/80">
-                {siteConfig.name} helpt bedrijven met het omzetten van designs naar schaalbare UI code. Of je stack nu
-                React, Vue, Angular of custom is: ik sluit naadloos aan en lever websites met de modernste stack.
-                Geen WordPress-themes, maar custom build front-end die snel, schaalbaar en SEO-sterk is.
-              </p>
+              <p className="mt-6 max-w-2xl text-lg text-white/80">{t.home.heroDescription}</p>
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3 font-semibold text-base transition hover:bg-white/90"
                 >
-                  Plan een gesprek
+                  {t.home.primaryCta}
                   <ArrowRight size={18} />
                 </Link>
                 <Link
                   href="/portfolio"
                   className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3 font-semibold text-white transition hover:border-white/45"
                 >
-                  Bekijk portfolio
+                  {t.home.secondaryCta}
                 </Link>
               </div>
               <div className="mt-10 grid gap-4 text-sm text-white/75 sm:grid-cols-3">
-                <p className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3">Vanaf EUR 80 per uur</p>
-                <p className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3">Remote inzetbaar</p>
-                <p className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3">React, Vue, Angular</p>
+                {t.home.highlights.map((item) => (
+                  <p key={item} className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3">
+                    {item}
+                  </p>
+                ))}
               </div>
             </div>
           </AnimatedSection>
@@ -78,16 +64,18 @@ export default function HomePage() {
               <div className="rounded-[1.6rem] border border-white/10 bg-surface p-5">
                 <Image
                   src="/logos/rvfrontend-white-v2.png"
-                  alt="RV Frontend"
+                  alt={siteConfig.name}
                   width={1200}
                   height={546}
                   className="h-auto w-full rounded-xl"
                   priority
                 />
                 <div className="mt-5 grid gap-3 text-sm">
-                  <p className="rounded-xl border border-white/10 bg-base px-3 py-2 text-white/80">Design-to-code delivery</p>
-                  <p className="rounded-xl border border-white/10 bg-base px-3 py-2 text-white/80">CSS, SCSS, Tailwind en Bootstrap</p>
-                  <p className="rounded-xl border border-white/10 bg-base px-3 py-2 text-white/80">SEO en Core Web Vitals focus</p>
+                  {t.home.sideBullets.map((item) => (
+                    <p key={item} className="rounded-xl border border-white/10 bg-base px-3 py-2 text-white/80">
+                      {item}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -96,12 +84,12 @@ export default function HomePage() {
       </section>
 
       <AnimatedSection className="container-shell py-20">
-        <p className="kicker">Wat ik doe</p>
+        <p className="kicker">{t.home.workKicker}</p>
         <h2 className="mt-4 max-w-3xl text-3xl font-semibold text-white md:text-5xl">
-          UI implementatie die designkwaliteit en engineeringkwaliteit samenbrengt.
+          {t.home.workTitle}
         </h2>
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {capabilities.map((capability) => (
+          {t.home.capabilities.map((capability) => (
             <article key={capability} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
               <CheckCircle2 className="mb-3 text-cyan" size={18} />
               <p className="text-white/85">{capability}</p>
@@ -111,9 +99,9 @@ export default function HomePage() {
       </AnimatedSection>
 
       <AnimatedSection className="container-shell py-16">
-        <p className="kicker">Werkwijze</p>
+        <p className="kicker">{t.home.processKicker}</p>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {process.map((step, index) => (
+          {t.home.process.map((step, index) => (
             <article key={step.title} className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
               <p className="text-xs text-cyan">0{index + 1}</p>
               <h3 className="mt-3 text-xl font-semibold text-white">{step.title}</h3>
@@ -125,24 +113,24 @@ export default function HomePage() {
 
       <AnimatedSection className="container-shell pb-24 pt-8">
         <div className="rounded-[2rem] border border-white/10 bg-gradient-to-r from-surface via-base to-surface px-8 py-10 md:px-12">
-          <p className="kicker">Tech stack fit</p>
-          <h2 className="mt-3 text-2xl font-semibold text-white md:text-4xl">Direct inzetbaar in jouw project</h2>
+          <p className="kicker">{t.home.techKicker}</p>
+          <h2 className="mt-3 text-2xl font-semibold text-white md:text-4xl">{t.home.techTitle}</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-4">
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <Code2 className="text-cyan" />
-              <p className="mt-3 font-medium text-white">React / Next.js</p>
+              <p className="mt-3 font-medium text-white">{t.home.techItems[0]}</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <Layers3 className="text-cyan" />
-              <p className="mt-3 font-medium text-white">Vue / Nuxt</p>
+              <p className="mt-3 font-medium text-white">{t.home.techItems[1]}</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <Workflow className="text-cyan" />
-              <p className="mt-3 font-medium text-white">Angular</p>
+              <p className="mt-3 font-medium text-white">{t.home.techItems[2]}</p>
             </div>
             <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
               <Rocket className="text-cyan" />
-              <p className="mt-3 font-medium text-white">Legacy codebases</p>
+              <p className="mt-3 font-medium text-white">{t.home.techItems[3]}</p>
             </div>
           </div>
         </div>

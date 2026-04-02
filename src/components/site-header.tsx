@@ -2,17 +2,33 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 import { navItems } from "@/data/site";
+import { getMessages } from "@/data/i18n";
+import type { Language } from "@/lib/language";
+import { useLanguage } from "@/components/language-provider";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
+
+  const t = getMessages(language);
+
+  function onLanguageChange(nextLanguage: Language) {
+    if (nextLanguage === language) {
+      return;
+    }
+
+    setLanguage(nextLanguage);
+    router.refresh();
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-base/85 backdrop-blur-xl">
@@ -55,24 +71,50 @@ export function SiteHeader() {
                   active && "text-white"
                 )}
               >
-                {item.label}
+                {t.nav[item.key]}
               </Link>
             );
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <div className="relative inline-flex rounded-full border border-white/20 bg-white/[0.05] p-1" role="group" aria-label={t.header.languageSwitchAria}>
+            {(["nl", "en"] as const).map((lang) => {
+              const active = language === lang;
+              return (
+                <button
+                  key={lang}
+                  type="button"
+                  onClick={() => onLanguageChange(lang)}
+                  className={cn(
+                    "relative rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] transition-colors",
+                    active ? "text-white" : "text-white/65 hover:text-white"
+                  )}
+                >
+                  {active ? (
+                    <motion.span
+                      layoutId="language-pill"
+                      className="absolute inset-0 rounded-full border border-electric/50 bg-electric/25"
+                      transition={{ type: "spring", stiffness: 360, damping: 28 }}
+                    />
+                  ) : null}
+                  <span className="relative z-10">{lang}</span>
+                </button>
+              );
+            })}
+          </div>
+
           <Link
             href="/contact"
             className="rounded-full border border-electric/60 bg-electric/20 px-5 py-2 text-sm font-semibold text-white transition hover:bg-electric/40"
           >
-            Start gesprek
+            {t.header.cta}
           </Link>
         </div>
 
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label={t.header.menuToggleAria}
           className="relative rounded-md border border-white/20 p-2 text-white md:hidden"
           onClick={() => setOpen((value) => !value)}
         >
@@ -117,12 +159,32 @@ export function SiteHeader() {
                           active && "bg-white/5 text-white"
                         )}
                       >
-                        {item.label}
+                        {t.nav[item.key]}
                       </Link>
                     </motion.div>
                   );
                 })}
               </nav>
+
+              <div className="mt-4 flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.03] p-2" role="group" aria-label={t.header.languageSwitchAria}>
+                {(["nl", "en"] as const).map((lang) => {
+                  const active = language === lang;
+
+                  return (
+                    <button
+                      key={lang}
+                      type="button"
+                      onClick={() => onLanguageChange(lang)}
+                      className={cn(
+                        "flex-1 rounded-xl px-3 py-2 text-sm font-semibold uppercase tracking-[0.1em]",
+                        active ? "border border-electric/50 bg-electric/25 text-white" : "text-white/70"
+                      )}
+                    >
+                      {lang}
+                    </button>
+                  );
+                })}
+              </div>
 
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
@@ -135,7 +197,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   className="inline-block rounded-full border border-electric/60 bg-electric/20 px-5 py-2 text-sm font-semibold text-white transition hover:bg-electric/40"
                 >
-                  Start gesprek
+                  {t.header.cta}
                 </Link>
               </motion.div>
             </div>

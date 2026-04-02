@@ -1,3 +1,5 @@
+export type NavKey = "home" | "pricing" | "portfolio" | "contact";
+
 export const siteConfig = {
   name: "RV Frontend",
   tagline: "render: pixel-perfect",
@@ -10,18 +12,8 @@ export const siteConfig = {
 };
 
 export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/contact" }
-];
-
-export const capabilities = [
-  "Designs vertalen naar productieklare UI",
-  "Websites bouwen met moderne stack, custom build (geen WordPress)",
-  "CSS, SCSS, Tailwind CSS en Bootstrap",
-  "GitHub Copilot en AI-tools in front-end workflow",
-  "React, Vue, Angular en bestaande codebases",
-  "Performance en SEO-bewuste front-end implementatie",
-  "Remote inzetbaar met snelle communicatie"
-];
+  { key: "home", href: "/" },
+  { key: "pricing", href: "/pricing" },
+  { key: "portfolio", href: "/portfolio" },
+  { key: "contact", href: "/contact" }
+] satisfies Array<{ key: NavKey; href: string }>;
