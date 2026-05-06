@@ -81,7 +81,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true
   },
-  themeColor: "#060910"
+  themeColor: "#060910",
+  other: {
+    "google-adsense-account": "ca-pub-5016673566357322"
+  }
 };
 
 export default async function RootLayout({
