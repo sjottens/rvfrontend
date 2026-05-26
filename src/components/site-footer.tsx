@@ -56,8 +56,21 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-white/45">
-        {new Date().getFullYear()} RV Frontend. {t.footer.rightsReserved}
+      <div className="border-t border-white/10 px-6 py-5 md:flex md:items-center md:justify-between">
+        <div className="text-center text-xs text-white/45 md:text-left">
+          {new Date().getFullYear()} RV Frontend. {t.footer.rightsReserved}
+        </div>
+        <div className="mt-4 flex justify-center gap-6 text-xs text-white/50 md:mt-0">
+          <Link href="/privacy-policy" className="transition-colors hover:text-white">
+            Privacy Policy
+          </Link>
+          <Link href="/cookie-policy" className="transition-colors hover:text-white">
+            Cookie Policy
+          </Link>
+          <Link href="/terms" className="transition-colors hover:text-white">
+            Terms
+          </Link>
+        </div>
       </div>
     </footer>
   );

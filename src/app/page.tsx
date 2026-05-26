@@ -2,12 +2,44 @@ import Image from "next/image";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { ArrowRight, CheckCircle2, Code2, Layers3, Rocket, Workflow } from "lucide-react";
+import type { Metadata } from "next";
 
 import { AnimatedSection } from "@/components/animated-section";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { getMessages } from "@/data/i18n";
 import { siteConfig } from "@/data/site";
 import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
+
+export const metadata: Metadata = {
+  title: {
+    default: "RV Frontend | Pixel-perfect UI implementatie",
+    template: "%s | RV Frontend"
+  },
+  description:
+    "Senior front-end engineer specializing in pixel-perfect UI implementatie. Custom-built websites met React, Vue, Angular - sneller en SEO-sterker dan WordPress.",
+  keywords: [
+    "frontend developer",
+    "custom website laten maken",
+    "geen wordpress",
+    "ui implementatie",
+    "design to code",
+    "tailwind css",
+    "react developer",
+    "vue developer",
+    "angular developer",
+    "remote frontend",
+    "pixel-perfect"
+  ],
+  authors: [{ name: "RV Frontend" }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+  },
+  alternates: {
+    canonical: "/"
+  }
+};
 
 export default async function HomePage() {
   const cookieStore = await cookies();

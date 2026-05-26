@@ -18,6 +18,7 @@ export function BackgroundAudio() {
 
     return window.localStorage.getItem(STORAGE_KEY) === "on";
   });
+  const [isNearBottom, setIsNearBottom] = useState(false);
   const { language } = useLanguage();
   const t = getMessages(language);
 
@@ -47,6 +48,20 @@ export function BackgroundAudio() {
     void playAudio();
   }, [enabled]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const distanceFromBottom = documentHeight - scrollPosition;
+
+      // Set isNearBottom to true when user is within 100px of the bottom
+      setIsNearBottom(distanceFromBottom < 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   function toggleAudio() {
     setEnabled((current) => !current);
   }
@@ -55,7 +70,7 @@ export function BackgroundAudio() {
     <>
       <audio ref={audioRef} src={AUDIO_SRC} loop preload="none" />
 
-      <div className="fixed bottom-5 right-5 z-[90]">
+      <div className={`fixed right-5 z-[90] transition-all duration-300 ${isNearBottom ? "bottom-16" : "bottom-5"}`}>
         <button
           type="button"
           onClick={toggleAudio}
@@ -71,7 +86,6 @@ export function BackgroundAudio() {
           </span>
           <span className="sm:hidden">{enabled ? <Volume2 size={16} /> : <VolumeX size={16} />}</span>
         </button>
-
       </div>
     </>
   );

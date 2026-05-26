@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { Clock3, MonitorCog, SendHorizonal } from "lucide-react";
+import type { Metadata } from "next";
 
 import { AnimatedSection } from "@/components/animated-section";
 import { ContactBackgroundVideo } from "@/components/contact-background-video";
@@ -7,10 +8,17 @@ import { ContactForm } from "@/components/contact-form";
 import { getMessages } from "@/data/i18n";
 import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Neem contact op met RV Frontend voor UI implementatie, design-to-code support of tijdelijke front-end capaciteit."
+    "Neem contact op met RV Frontend voor UI implementatie, design-to-code support of tijdelijke front-end capaciteit. Reactietijd meestal binnen 24 uur.",
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "/contact"
+  }
 };
 
 export default async function ContactPage() {

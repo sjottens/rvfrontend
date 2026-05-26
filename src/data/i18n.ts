@@ -113,6 +113,7 @@ export const messages = {
       home: "Home",
       pricing: "Pricing",
       portfolio: "Portfolio",
+      about: "About",
       contact: "Contact"
     },
     header: {
@@ -249,6 +250,7 @@ export const messages = {
       home: "Home",
       pricing: "Pricing",
       portfolio: "Portfolio",
+      about: "About",
       contact: "Contact"
     },
     header: {

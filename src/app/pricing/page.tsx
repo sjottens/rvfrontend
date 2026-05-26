@@ -1,16 +1,24 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { Check, Sparkles } from "lucide-react";
+import type { Metadata } from "next";
 
 import pricingData from "@/data/pricing.json";
 import { getMessages } from "@/data/i18n";
 import { AnimatedSection } from "@/components/animated-section";
 import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparante prijzen voor UI implementatie en front-end support. Start vanaf EUR 75 per uur, met project- en dedicated opties."
+    "Transparante prijzen voor UI implementatie en front-end support. Senior front-end capaciteit vanaf EUR 75 per uur, met project- en dedicated opties.",
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "/pricing"
+  }
 };
 
 export default async function PricingPage() {

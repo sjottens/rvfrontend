@@ -4,10 +4,24 @@ const baseUrl = "https://rvfrontend.nl";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/"
-    },
-    sitemap: `${baseUrl}/sitemap.xml`
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/*.json$"],
+        crawlDelay: 1
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
+        crawlDelay: 0.5
+      },
+      {
+        userAgent: "Baiduspider",
+        disallow: "/"
+      }
+    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl
   };
 }

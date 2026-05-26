@@ -1,9 +1,9 @@
-export type NavKey = "home" | "pricing" | "portfolio" | "contact";
+export type NavKey = "home" | "pricing" | "portfolio" | "contact" | "about";
 
 export const siteConfig = {
   name: "RV Frontend",
   tagline: "render: pixel-perfect",
-  domain: "https://rvfrontend.nl",
+  domain: "https://rvfrontend.netlify.app",
   email: "rvottens@gmail.com",
   phone: "+31628522314",
   location: "Remote (NL / EU)",
@@ -15,5 +15,6 @@ export const navItems = [
   { key: "home", href: "/" },
   { key: "pricing", href: "/pricing" },
   { key: "portfolio", href: "/portfolio" },
+  { key: "about", href: "/about" },
   { key: "contact", href: "/contact" }
 ] satisfies Array<{ key: NavKey; href: string }>;

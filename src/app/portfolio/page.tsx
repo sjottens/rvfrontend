@@ -2,11 +2,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
 
 import portfolioData from "@/data/portfolio.json";
 import { getMessages, getPortfolioProjectText } from "@/data/i18n";
 import { AnimatedSection } from "@/components/animated-section";
 import { LANG_COOKIE, normalizeLanguage } from "@/lib/language";
+
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description:
+    "Portfolio van RV Frontend: UI implementatie projecten voor e-commerce, B2B platforms en SaaS. Clients: Alko, Isero, PLUS, Xerox en meer.",
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "/portfolio"
+  }
+};
 
 const projectLogos = [
   { src: "/projectlogos/alko-logo.png", alt: "Alko logo" },
@@ -19,12 +33,6 @@ const projectLogos = [
   { src: "/projectlogos/wefashion-logo.png", alt: "WE Fashion logo" },
   { src: "/projectlogos/Xerox-logo.png", alt: "Xerox logo" }
 ];
-
-export const metadata = {
-  title: "Portfolio",
-  description:
-    "Projectvoorbeelden van RV Frontend: UI implementatie voor e-commerce en B2B platforms zoals Alko, Isero en PLUS."
-};
 
 export default async function PortfolioPage() {
   const cookieStore = await cookies();

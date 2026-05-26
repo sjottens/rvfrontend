@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
 import { Sora, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 
 import "./globals.css";
 import { BackgroundAudio } from "@/components/background-audio";
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { LanguageProvider } from "@/components/language-provider";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -81,10 +82,15 @@ export const metadata: Metadata = {
     index: true,
     follow: true
   },
-  themeColor: "#060910",
   other: {
     "google-adsense-account": "ca-pub-5016673566357322"
   }
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#060910"
 };
 
 export default async function RootLayout({
@@ -110,19 +116,37 @@ export default async function RootLayout({
 
   return (
     <html lang={language} className={`${spaceGrotesk.variable} ${sora.variable}`}>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5016673566357322"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
       <body className="min-h-screen bg-noise text-mist antialiased">
+        {/* Google Consent Mode v2 initialization */}
+        <Script id="consent-mode-init" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied'
+            });
+          `}
+        </Script>
+
+        {/* Google AdSense Script */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5016673566357322"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         <LanguageProvider initialLanguage={language}>
           <BackgroundAudio />
           <SiteHeader />
           <main>{children}</main>
           <SiteFooter />
+          <CookieConsentBanner />
         </LanguageProvider>
+
+        {/* Organization Schema */}
         <Script id="org-schema" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(orgSchema)}
         </Script>
