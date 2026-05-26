@@ -118,7 +118,20 @@ export default async function RootLayout({
 
   return (
     <html lang={language} className={`${spaceGrotesk.variable} ${sora.variable}`}>
-      <body className="min-h-screen bg-noise text-mist antialiased">
+      <head>
+        {/* Google tag (gtag.js) - MUST be in head for Google detection */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P9YQNQTHT7"
+          strategy="beforeInteractive"
+        />
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P9YQNQTHT7');
+          `}
+        </Script>
+
         {/* Google Consent Mode v2 initialization */}
         <Script id="consent-mode-init" strategy="beforeInteractive">
           {`
@@ -132,7 +145,8 @@ export default async function RootLayout({
             });
           `}
         </Script>
-
+      </head>
+      <body className="min-h-screen bg-noise text-mist antialiased">
         {/* Google AdSense Script */}
         <AdSenseScript />
 
