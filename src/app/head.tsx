@@ -5,9 +5,9 @@ export default function Head() {
     <>
       {/* Google tag (gtag.js) */}
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P9YQNQTHT7"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="beforeInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
