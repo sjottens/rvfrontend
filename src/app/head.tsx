@@ -4,9 +4,7 @@ export default function Head() {
   return (
     <>
       {/* Google tag (gtag.js) */}
-      <Script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-P9YQNQTHT7"
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P9YQNQTHT7"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
