@@ -5,6 +5,7 @@ import Script from "next/script";
 
 import "./globals.css";
 import { BackgroundAudio } from "@/components/background-audio";
+import { AdSenseScript } from "@/components/adsense-script";
 import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { LanguageProvider } from "@/components/language-provider";
 import { SiteHeader } from "@/components/site-header";
@@ -132,11 +133,7 @@ export default async function RootLayout({
         </Script>
 
         {/* Google AdSense Script */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5016673566357322"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <AdSenseScript />
 
         <LanguageProvider initialLanguage={language}>
           <BackgroundAudio />
