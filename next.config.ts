@@ -10,30 +10,27 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: [
-          {
-            key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://region1.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://region1.google-analytics.com https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google; frame-src 'self' https://pagead2.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;",
-          },
-          {
-            key: "Cross-Origin-Opener-Policy",
-            value: "same-origin-allow-popups",
-          },
+          // X-Frame-Options: Prevent clickjacking attacks
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
           },
+          // X-Content-Type-Options: Prevent MIME type sniffing
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
           },
+          // X-XSS-Protection: Enable browser XSS filtering (legacy protection)
           {
             key: "X-XSS-Protection",
             value: "1; mode=block",
           },
+          // Referrer-Policy: Control referrer information
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
+          // Permissions-Policy: Disable unnecessary browser features
           {
             key: "Permissions-Policy",
             value: "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
