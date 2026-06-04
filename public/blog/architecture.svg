@@ -1,0 +1,31 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050812;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg9)"/>
+  <!-- Architecture layers -->
+  <!-- Layer 4: Presentation -->
+  <rect x="300" y="100" width="600" height="70" fill="none" stroke="#00d4ff" stroke-width="2" rx="5"/>
+  <text x="600" y="140" font-size="20" font-weight="600" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Presentation Layer</text>
+  <!-- Layer 3: Application -->
+  <rect x="300" y="190" width="600" height="70" fill="none" stroke="#06b6d4" stroke-width="2" rx="5"/>
+  <text x="600" y="230" font-size="20" font-weight="600" text-anchor="middle" fill="#06b6d4" font-family="system-ui">Application Layer</text>
+  <!-- Connections -->
+  <line x1="600" y1="170" x2="600" y2="190" stroke="#00d4ff" stroke-width="2"/>
+  <!-- Layer 2: Business Logic -->
+  <rect x="300" y="280" width="600" height="70" fill="none" stroke="#0891b2" stroke-width="2" rx="5"/>
+  <text x="600" y="320" font-size="20" font-weight="600" text-anchor="middle" fill="#0891b2" font-family="system-ui">Business Logic Layer</text>
+  <!-- Connections -->
+  <line x1="600" y1="260" x2="600" y2="280" stroke="#06b6d4" stroke-width="2"/>
+  <!-- Layer 1: Data -->
+  <rect x="300" y="370" width="600" height="70" fill="none" stroke="#06d6d0" stroke-width="2" rx="5"/>
+  <text x="600" y="410" font-size="20" font-weight="600" text-anchor="middle" fill="#06d6d0" font-family="system-ui">Data Layer</text>
+  <!-- Connections -->
+  <line x1="600" y1="350" x2="600" y2="370" stroke="#0891b2" stroke-width="2"/>
+  <!-- Title -->
+  <text x="600" y="530" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Frontend Architecture</text>
+  <text x="600" y="600" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Patterns & Best Practices</text>
+</svg>

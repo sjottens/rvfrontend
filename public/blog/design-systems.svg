@@ -1,18 +1,20 @@
-<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="grad8" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg8" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#050812;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="675" fill="url(#grad8)"/>
-  <rect x="250" y="150" width="100" height="100" fill="#00d4ff" opacity="0.4" rx="8"/>
-  <rect x="425" y="150" width="100" height="100" fill="#00d4ff" opacity="0.3" rx="8"/>
-  <rect x="600" y="150" width="100" height="100" fill="#00d4ff" opacity="0.35" rx="8"/>
-  <rect x="775" y="150" width="100" height="100" fill="#00d4ff" opacity="0.3" rx="8"/>
-  <rect x="250" y="325" width="100" height="100" fill="#00d4ff" opacity="0.3" rx="8"/>
-  <rect x="425" y="325" width="100" height="100" fill="#00d4ff" opacity="0.4" rx="8"/>
-  <rect x="600" y="325" width="100" height="100" fill="#00d4ff" opacity="0.3" rx="8"/>
-  <rect x="775" y="325" width="100" height="100" fill="#00d4ff" opacity="0.35" rx="8"/>
-  <text x="600" y="570" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Design Systems</text>
+  <rect width="1200" height="675" fill="url(#bg8)"/>
+  <!-- Figma-style design system visualization -->
+  <!-- Central circle -->  
+  <circle cx="600" cy="240" r="50" fill="#f25623"/>
+  <!-- Surrounding elements -->
+  <circle cx="480" cy="160" r="40" fill="#a259ff" opacity="0.9"/>
+  <circle cx="720" cy="160" r="40" fill="#1abcfe" opacity="0.9"/>
+  <circle cx="750" cy="300" r="40" fill="#0acf83" opacity="0.9"/>
+  <circle cx="450" cy="300" r="40" fill="#ff6b6b" opacity="0.9"/>
+  <!-- Title -->
+  <text x="600" y="480" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Design Systems</text>
+  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Components & Tokens with Figma</text>
 </svg>

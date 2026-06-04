@@ -1103,7 +1103,7 @@ Design systems scale with your product.`
       "Ontdek moderne frontend architectuur patterns: component composition, state management, atomic design, en scalable structures.",
     descriptionEn:
       "Discover modern frontend architecture patterns: component composition, state management, atomic design, and scalable structures.",
-    image: "/blog/architecture.jpg",
+    image: "/blog/architecture.svg",
     category: "Architecture",
     categoryEn: "Architecture",
     readTime: 15,
