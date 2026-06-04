@@ -118,6 +118,13 @@ export default async function RootLayout({
   return (
     <html lang={language} className={`${spaceGrotesk.variable} ${sora.variable}`}>
       <head>
+        {/* Preconnect to critical third-party origins */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://region1.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://ep1.adtrafficquality.google" />
+        <link rel="dns-prefetch" href="https://ep2.adtrafficquality.google" />
+
         {/* Google Consent Mode v2 initialization - load after interactive to avoid hydration mismatch */}
         <Script id="consent-mode-init" strategy="afterInteractive">
           {`

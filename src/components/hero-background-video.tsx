@@ -8,7 +8,7 @@ type HeroBackgroundVideoProps = {
   ariaLabel: string;
 };
 
-const VIDEO_LOAD_DELAY_MS = 1100;
+const VIDEO_LOAD_DELAY_MS = 100; // Reduced from 1100ms to prioritize LCP video
 
 export function HeroBackgroundVideo({ src, className, ariaLabel }: HeroBackgroundVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -61,7 +61,7 @@ export function HeroBackgroundVideo({ src, className, ariaLabel }: HeroBackgroun
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="auto"
       aria-label={ariaLabel}
     >
       <source src={src} type="video/mp4" />
