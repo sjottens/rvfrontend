@@ -14,5 +14,5 @@
   <text x="600" y="270" font-size="48" text-anchor="middle" fill="#ffffff" font-family="system-ui">A</text>
   <!-- Title -->
   <text x="600" y="480" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Web Accessibility</text>
-  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">WCAG Compliance & Best Practices</text>
+  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">WCAG Compliance &amp; Best Practices</text>
 </svg>

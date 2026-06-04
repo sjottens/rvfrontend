@@ -11,5 +11,5 @@
   <text x="600" y="320" font-size="180" font-weight="900" text-anchor="middle" fill="#ffffff" font-family="system-ui">N</text>
   <!-- Title -->
   <text x="600" y="480" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Next.js 15</text>
-  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Features & Performance</text>
+  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Features &amp; Performance</text>
 </svg>

@@ -16,5 +16,5 @@
   <circle cx="450" cy="300" r="40" fill="#ff6b6b" opacity="0.9"/>
   <!-- Title -->
   <text x="600" y="480" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Design Systems</text>
-  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Components & Tokens with Figma</text>
+  <text x="600" y="550" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Components &amp; Tokens with Figma</text>
 </svg>

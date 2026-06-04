@@ -17,5 +17,5 @@
   <circle cx="600" cy="250" r="12" fill="#61dafb"/>
   <!-- Title -->
   <text x="600" y="430" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">React Hooks</text>
-  <text x="600" y="500" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">useState, useEffect & More</text>
+  <text x="600" y="500" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">useState, useEffect &amp; More</text>
 </svg>

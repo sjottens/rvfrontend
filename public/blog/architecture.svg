@@ -27,5 +27,5 @@
   <line x1="600" y1="350" x2="600" y2="370" stroke="#0891b2" stroke-width="2"/>
   <!-- Title -->
   <text x="600" y="530" font-size="48" font-weight="600" text-anchor="middle" fill="#ffffff" font-family="system-ui">Frontend Architecture</text>
-  <text x="600" y="600" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Patterns & Best Practices</text>
+  <text x="600" y="600" font-size="32" text-anchor="middle" fill="#00d4ff" font-family="system-ui">Patterns &amp; Best Practices</text>
 </svg>
