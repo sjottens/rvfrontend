@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { blogPosts } from "@/data/blog";
@@ -72,7 +73,14 @@ export default async function BlogPage() {
               <AnimatedSection key={post.slug} delay={index * 0.1}>
                 <Link href={`/blog/${post.slug}`} className="group block">
                   <article className="h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-cyan/50 hover:bg-white/5">
-                    <div className="aspect-video bg-gradient-to-br from-cyan/20 to-white/5" />
+                    <div className="aspect-video relative overflow-hidden bg-white/5">
+                      <Image
+                        src={post.image}
+                        alt={language === "nl" ? post.title : post.titleEn}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                     <div className="p-6">
                       <div className="flex items-center justify-between">
                         <span className="text-sm font-semibold text-cyan">

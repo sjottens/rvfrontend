@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
       "Leer alles over React Hooks: useState, useEffect, useContext, en custom hooks. Ontdek hoe je functional components kunt gebruiken en state management kunt vereenvoudigen.",
     descriptionEn:
       "Learn everything about React Hooks: useState, useEffect, useContext, and custom hooks. Discover how to use functional components and simplify state management.",
-    image: "/blog/react-hooks.jpg",
+    image: "/blog/react-hooks.svg",
     category: "React",
     categoryEn: "React",
     readTime: 12,
@@ -257,7 +257,7 @@ React Hooks have significantly simplified React development. They make code more
       "Ontdek de nieuwste features in Next.js 15: App Router optimalisaties, Server Components, en performance improvements die je websites sneller maken.",
     descriptionEn:
       "Discover the latest features in Next.js 15: App Router optimizations, Server Components, and performance improvements that make your websites faster.",
-    image: "/blog/nextjs.jpg",
+    image: "/blog/nextjs-features.svg",
     category: "Next.js",
     categoryEn: "Next.js",
     readTime: 14,
@@ -401,7 +401,7 @@ Next.js 15 is a solid update with many practical improvements.`
       "Leer hoe je TypeScript optimaal kunt gebruiken in je React en Next.js projecten. Type-veilige code met betere developer experience.",
     descriptionEn:
       "Learn how to use TypeScript effectively in your React and Next.js projects. Type-safe code with better developer experience.",
-    image: "/blog/typescript.jpg",
+    image: "/blog/typescript-best-practices.svg",
     category: "TypeScript",
     categoryEn: "TypeScript",
     readTime: 15,
@@ -543,7 +543,7 @@ TypeScript makes your code safer and more maintainable.`
       "Beheers Tailwind CSS: utility-first CSS, custom configurations, performance optimalisatie, en advanced patterns.",
     descriptionEn:
       "Master Tailwind CSS: utility-first CSS, custom configurations, performance optimization, and advanced patterns.",
-    image: "/blog/tailwind.jpg",
+    image: "/blog/tailwind-css-mastery.svg",
     category: "CSS",
     categoryEn: "CSS",
     readTime: 13,
@@ -655,7 +655,7 @@ Tailwind CSS makes styling faster and more consistent.`
       "Leer mobile-first development en zorg dat je websites op alle devices perfect werken. Best practices voor responsive design.",
     descriptionEn:
       "Learn mobile-first development and ensure your websites work perfectly on all devices. Best practices for responsive design.",
-    image: "/blog/responsive.jpg",
+    image: "/blog/responsive-design-strategy.svg",
     category: "Design",
     categoryEn: "Design",
     readTime: 11,
@@ -763,7 +763,7 @@ Mobile-first development leads to better user experiences.`
       "Optimaliseer je website voor snelheid. Leer over Core Web Vitals, image optimization, code splitting, en caching strategieën.",
     descriptionEn:
       "Optimize your website for speed. Learn about Core Web Vitals, image optimization, code splitting, and caching strategies.",
-    image: "/blog/performance.jpg",
+    image: "/blog/frontend-performance.svg",
     category: "Performance",
     categoryEn: "Performance",
     readTime: 16,
@@ -865,7 +865,7 @@ Performance is an important ranking factor.`
       "Zorg dat je website toegankelijk is voor iedereen. WCAG richtlijnen, semantic HTML, ARIA labels, en accessibility testing.",
     descriptionEn:
       "Make your website accessible to everyone. WCAG guidelines, semantic HTML, ARIA labels, and accessibility testing.",
-    image: "/blog/accessibility.jpg",
+    image: "/blog/web-accessibility.svg",
     category: "Accessibility",
     categoryEn: "Accessibility",
     readTime: 14,
@@ -979,7 +979,7 @@ Accessibility is inclusive design.`
       "Bouw schaalbare design systems. Component libraries, design tokens, Storybook, en documenting patterns.",
     descriptionEn:
       "Build scalable design systems. Component libraries, design tokens, Storybook, and documenting patterns.",
-    image: "/blog/design-systems.jpg",
+    image: "/blog/design-systems.svg",
     category: "Design",
     categoryEn: "Design",
     readTime: 13,
