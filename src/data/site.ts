@@ -1,4 +1,4 @@
-export type NavKey = "home" | "pricing" | "portfolio" | "contact" | "about";
+export type NavKey = "home" | "pricing" | "portfolio" | "contact" | "about" | "services" | "blog" | "faq";
 
 export const siteConfig = {
   name: "RV Frontend",
@@ -13,8 +13,11 @@ export const siteConfig = {
 
 export const navItems = [
   { key: "home", href: "/" },
+  { key: "services", href: "/services" },
   { key: "pricing", href: "/pricing" },
   { key: "portfolio", href: "/portfolio" },
+  { key: "blog", href: "/blog" },
+  { key: "faq", href: "/faq" },
   { key: "about", href: "/about" },
   { key: "contact", href: "/contact" }
 ] satisfies Array<{ key: NavKey; href: string }>;

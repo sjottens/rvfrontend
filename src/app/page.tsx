@@ -38,6 +38,15 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/"
+  },
+  openGraph: {
+    title: "RV Frontend | Pixel-perfect UI implementatie",
+    description:
+      "Senior front-end engineer specializing in pixel-perfect UI implementatie. Custom-built websites met React, Vue, Angular.",
+    url: "https://rvfrontend.netlify.app",
+    siteName: "RV Frontend",
+    locale: "nl_NL",
+    type: "website"
   }
 };
 

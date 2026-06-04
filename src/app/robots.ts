@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://rvfrontend.nl";
+const baseUrl = "https://rvfrontend.netlify.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {

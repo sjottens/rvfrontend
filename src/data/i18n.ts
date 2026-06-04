@@ -111,9 +111,12 @@ export const messages = {
   nl: {
     nav: {
       home: "Home",
+      services: "Diensten",
       pricing: "Pricing",
       portfolio: "Portfolio",
+      blog: "Blog",
       about: "About",
+      faq: "FAQ",
       contact: "Contact"
     },
     header: {
@@ -239,6 +242,37 @@ export const messages = {
       genericError: "Er ging iets mis. Probeer het nog een keer of mail direct.",
       onRequest: "Op aanvraag"
     },
+    services: {
+      kicker: "Diensten",
+      title: "Frontend services op maat",
+      description: "Ik bied gespecialiseerde diensten in front-end development, van UI-implementatie tot performance-optimalisatie.",
+      servicesTitle: "Wat ik aanbied",
+      processTitle: "Werkproces",
+      techStackTitle: "Gebruikte technologieën",
+      engagementTitle: "Samenwerkingsmodellen",
+      cta: "Start een project"
+    },
+    blog: {
+      kicker: "Blog",
+      title: "Front-end insights en best practices",
+      description: "Lees artikelen over React, Next.js, TypeScript, performance-optimalisatie en meer.",
+      categoriesTitle: "Categorieën",
+      readMore: "Lees meer",
+      readTime: "min leestijd",
+      publishedOn: "Gepubliceerd op",
+      allCategories: "Alle categorieën",
+      relatedArticles: "Gerelateerde artikelen",
+      backToBlog: "Terug naar blog",
+      articleNotFound: "Artikel niet gevonden",
+      byAuthor: "Door"
+    },
+    faq: {
+      kicker: "Veelgestelde vragen",
+      title: "FAQ's over mijn diensten",
+      description: "Antwoorden op veelgestelde vragen over mijn front-end services, werkwijze en samenwerking.",
+      stillHaveQuestions: "Nog vragen?",
+      contactUs: "Neem contact op"
+    },
     site: {
       description:
         "RV Frontend helpt bedrijven met pixel-perfect UI implementatie en custom-built websites: designs omzetten naar schaalbare front-end code in React, Vue, Angular of bestaande codebases. Geen WordPress, wel moderne stack en SEO-sterke performance.",
@@ -248,9 +282,12 @@ export const messages = {
   en: {
     nav: {
       home: "Home",
+      services: "Services",
       pricing: "Pricing",
       portfolio: "Portfolio",
+      blog: "Blog",
       about: "About",
+      faq: "FAQ",
       contact: "Contact"
     },
     header: {
@@ -375,6 +412,37 @@ export const messages = {
       success: "Thanks. I will get back to you within 24 hours.",
       genericError: "Something went wrong. Try again or email directly.",
       onRequest: "On request"
+    },
+    services: {
+      kicker: "Services",
+      title: "Tailored frontend services",
+      description: "I offer specialized services in front-end development, from UI implementation to performance optimization.",
+      servicesTitle: "What I offer",
+      processTitle: "Process",
+      techStackTitle: "Tech stack",
+      engagementTitle: "Engagement models",
+      cta: "Start a project"
+    },
+    blog: {
+      kicker: "Blog",
+      title: "Front-end insights and best practices",
+      description: "Read articles about React, Next.js, TypeScript, performance optimization, and more.",
+      categoriesTitle: "Categories",
+      readMore: "Read more",
+      readTime: "min read",
+      publishedOn: "Published on",
+      allCategories: "All categories",
+      relatedArticles: "Related articles",
+      backToBlog: "Back to blog",
+      articleNotFound: "Article not found",
+      byAuthor: "By"
+    },
+    faq: {
+      kicker: "FAQ",
+      title: "Frequently asked questions",
+      description: "Answers to common questions about my front-end services, process, and collaboration.",
+      stillHaveQuestions: "Still have questions?",
+      contactUs: "Get in touch"
     },
     site: {
       description:
