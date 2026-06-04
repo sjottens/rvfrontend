@@ -79,6 +79,7 @@ export default async function BlogPage() {
                         alt={language === "nl" ? post.title : post.titleEn}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-6">

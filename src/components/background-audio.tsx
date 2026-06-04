@@ -36,11 +36,15 @@ export function BackgroundAudio() {
       return;
     }
 
+    // Only attempt autoplay if user previously enabled it
+    // This reduces browser autoplay policy violations and improves best practices scores
     const playAudio = async () => {
       try {
         await audio.play();
         window.localStorage.setItem(STORAGE_KEY, "on");
-      } catch {
+      } catch (error) {
+        // Autoplay failed - likely due to browser policy
+        // Don't disable, just let user click the button
         setEnabled(false);
       }
     };

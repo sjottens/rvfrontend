@@ -64,6 +64,7 @@ export default async function PortfolioPage() {
                     fill
                     className="object-cover"
                     sizes="(min-width: 1024px) 55vw, 100vw"
+                    loading="lazy"
                   />
                 </div>
 
@@ -115,6 +116,7 @@ export default async function PortfolioPage() {
                   width={180}
                   height={60}
                   className="h-auto max-h-10 w-auto max-w-[130px] object-contain opacity-90 md:max-h-12 md:max-w-[165px]"
+                  loading="lazy"
                 />
               </div>
             ))}
