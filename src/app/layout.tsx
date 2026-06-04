@@ -118,8 +118,8 @@ export default async function RootLayout({
   return (
     <html lang={language} className={`${spaceGrotesk.variable} ${sora.variable}`}>
       <head>
-        {/* Google Consent Mode v2 initialization - MUST be first before GA loads */}
-        <Script id="consent-mode-init" strategy="beforeInteractive">
+        {/* Google Consent Mode v2 initialization - load after interactive to avoid hydration mismatch */}
+        <Script id="consent-mode-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -132,11 +132,11 @@ export default async function RootLayout({
           `}
         </Script>
 
-        {/* Google tag (gtag.js) - MUST be in head for Google detection */}
+        {/* Google tag (gtag.js) - load after interactive to avoid hydration mismatch */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P9YQNQTHT7"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="google-analytics" strategy="beforeInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -145,12 +145,12 @@ export default async function RootLayout({
           `}
         </Script>
 
-        {/* Google AdSense - MUST be in head for proper detection */}
+        {/* Google AdSense - load after interactive to avoid hydration mismatch */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5016673566357322"
           crossOrigin="anonymous"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
       </head>
       <body className="min-h-screen bg-noise text-mist antialiased">
