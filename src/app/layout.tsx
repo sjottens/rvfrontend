@@ -145,12 +145,13 @@ export default async function RootLayout({
           `}
         </Script>
 
-        {/* Google AdSense - load after interactive to avoid hydration mismatch */}
+        {/* Google AdSense - use beforeInteractive for proper AdSense detection */}
+        {/* This avoids the data-nscript attribute warning AdSense doesn't support */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5016673566357322"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
       </head>
       <body className="min-h-screen bg-noise text-mist antialiased">
