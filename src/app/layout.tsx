@@ -84,7 +84,15 @@ export const metadata: Metadata = {
   },
   other: {
     "google-site-verification": "78WaYCfOrCveJZcxkOFgF8JGAgG3oFG9mVgMUiLQFlQ",
-    "google-adsense-account": "ca-pub-5016673566357322"
+    "google-adsense-account": "ca-pub-5016673566357322",
+    "web:preferred_sources": JSON.stringify({
+      publishers: [
+        {
+          publisher_name: "RV Frontend",
+          publisher_url: siteConfig.domain
+        }
+      ]
+    })
   }
 };
 
@@ -113,6 +121,15 @@ export default async function RootLayout({
     telephone: siteConfig.phone,
     priceRange: "EUR 75+",
     serviceType: "UI implementation and frontend development"
+  };
+
+  const preferredSourcesSchema = {
+    "@context": "https://schema.org",
+    "@type": "Publisher",
+    name: siteConfig.name,
+    url: siteConfig.domain,
+    logo: `${siteConfig.domain}/logos/rvfrontend-white-v2.png`,
+    description: "Senior frontend development and UI implementation services"
   };
 
   return (
@@ -173,6 +190,11 @@ export default async function RootLayout({
         {/* Organization Schema */}
         <Script id="org-schema" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(orgSchema)}
+        </Script>
+
+        {/* Preferred Sources Schema */}
+        <Script id="preferred-sources-schema" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(preferredSourcesSchema)}
         </Script>
       </body>
     </html>

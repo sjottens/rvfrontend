@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Star } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -78,6 +78,22 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.4, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative"
+            title="Google Preferred Source - Your content is prioritized in Google Search"
+          >
+            <div className="relative inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1.5 hover:border-amber-500/60 hover:bg-amber-500/15 transition-all">
+              <Star size={14} className="text-amber-400 fill-amber-400" />
+              <span className="text-xs font-semibold text-amber-100 uppercase tracking-wider">Preferred Source</span>
+            </div>
+            <div className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-lg bg-slate-900 px-3 py-2 text-xs text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100 whitespace-nowrap border border-white/10">
+              Featured in Google Search
+            </div>
+          </motion.div>
+
           <div className="relative inline-flex rounded-full border border-white/20 bg-white/[0.05] p-1" role="group" aria-label={t.header.languageSwitchAria}>
             {(["nl", "en"] as const).map((lang) => {
               const active = language === lang;
@@ -185,6 +201,20 @@ export function SiteHeader() {
                   );
                 })}
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.22, duration: 0.25, ease: "easeOut" }}
+                className="mt-4 flex items-center gap-2 rounded-2xl border border-amber-500/40 bg-amber-500/10 px-3 py-2.5"
+                title="Google Preferred Source - Your content is prioritized in Google Search"
+              >
+                <Star size={16} className="text-amber-400 fill-amber-400" />
+                <div className="flex flex-col">
+                  <span className="text-xs font-semibold text-amber-100 uppercase tracking-wider">Preferred Source</span>
+                  <span className="text-xs text-amber-200/75">Featured in Google Search</span>
+                </div>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
